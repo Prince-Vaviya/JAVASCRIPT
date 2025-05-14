@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country API APP</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="userInput">
+        <button onclick="search()">Search</button>
+        <div id="data">
+            <img src="${data[0].flags.png}" alt="flag">
+            <h1>Name : - ${data[0].altSpellings[0]}</h1>
+            <h1>Capital : - ${data[0].capital[0]}</h1>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
