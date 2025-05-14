@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+  <!-- Use only one EmailJS script -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init({
+        publicKey: "gd6uS0vjWgzU5-9hY", // ✅ Replace with your actual Public Key
+      });
+    })();
+  </script>
+</head>
+<body>
+  <form id="contact-form">
+    <label>Name</label>
+    <input type="text" name="name" required>
+    <label>Email</label>
+    <input type="email" name="email" required>
+    <label>Subject</label>
+    <input type="text" name="title" required>
+    <label>Message</label>
+    <textarea name="message" required></textarea>
+    <input type="submit" value="Send">
+  </form>
+
+  <script>
+    window.onload = function() {
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_i2tha6l', 'template_ghqauiq', this)
+          .then(() => {
+            alert("Email sent successfully!");
+            console.log('SUCCESS!');
+            this.reset(); // Clear the form
+          }, (error) => {
+            alert("Failed to send email. Check console for error.");
+            console.error('FAILED...', error);
+          });
+      });
+    };
+  </script>
+</body>
+</html>
